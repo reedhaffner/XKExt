@@ -4,15 +4,29 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="spectre.min.css">
 </head>
 
 <body>
 
-    <form>
-        <label>Preferred Formatting<input type="text" id="preferred_formatting"></label>
-        <button type="submit">Save</button>
-    </form>
-
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label class="form-label">Separators</label>
+                <input class="form-input" type="text" id="separators">
+                <label class="form-label">Pattern</label>
+                <input class="form-input" type="text" id="pattern" pattern="[swdW]+" onchange="myFunction()">
+                <label class="form-label">Transform</label>
+                <select class="form-select" id="transform">
+                    <option></option>
+                    <option>alternate</option>
+                    <option>uppercase</option>
+                    <option>random</option>
+                </select>
+            </div>
+            <button type="submit" id="submitButton">Save</button>
+        </form>
+    </div>
     <script src="options.js"></script>
 
 </body>

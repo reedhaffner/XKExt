@@ -6,7 +6,7 @@ browser.menus.create({
 
         function getPassword(result) {
             var request = new XMLHttpRequest();
-            request.open('GET', `https://xkapi.hfnr.cc/api?separators=-&pattern=${result.preferred_formatting}&transform=random`, false);
+            request.open('GET', `https://xkapi.hfnr.cc/api?separators=${escape(result.separators)}&pattern=${result.pattern}&transform=${result.transform}`, false);
             request.send(null);
 
             if (request.status === 200) {
