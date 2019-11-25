@@ -1,4 +1,4 @@
-# XKExt ![Mozilla Add-on](https://img.shields.io/amo/v/xkext?style=for-the-badge)
+# XKExt [![Mozilla Add-on](https://img.shields.io/amo/v/xkext?style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/xkext/)
 Firefox extension to automatically generate XK Passwords
 
 You can install the addon [here](https://addons.mozilla.org/en-US/firefox/addon/xkext/).
