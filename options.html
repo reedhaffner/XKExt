@@ -12,6 +12,10 @@
     <div class="container">
         <form>
             <div class="form-group">
+                <label class="form-switch">
+                    <input type="checkbox" id="copy">
+                    <i class="form-icon"></i> Copy to Clipboard
+                </label>
                 <label class="form-label">Separators</label>
                 <input class="form-input" type="text" id="separators">
                 <label class="form-label">Pattern</label>
@@ -24,6 +28,7 @@
                     <option>random</option>
                 </select>
             </div>
+            <p id="unsaved" style="opacity: 0;">You have unsaved changes.</p>
             <button type="submit" id="submitButton">Save</button>
         </form>
     </div>

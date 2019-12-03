@@ -9,11 +9,13 @@ function disableSaveIfNotValid() {
 }
 
 function saveOptions(e) {
+    document.querySelector("#unsaved").style.opacity = 0;
     e.preventDefault();
     browser.storage.sync.set({
         separators: document.querySelector("#separators").value,
         pattern: document.querySelector("#pattern").value,
-        transform: document.querySelector("#transform").value
+        transform: document.querySelector("#transform").value,
+        copy: document.querySelector("#copy").checked
     });
 }
 
@@ -23,6 +25,7 @@ function restoreOptions() {
         document.querySelector("#separators").value = result.separators || "#.-=+_!$*:~?%^&;";
         document.querySelector("#pattern").value = result.pattern || "ddswswswsdd";
         document.querySelector("#transform").value = result.transform || "";
+        document.querySelector("#copy").checked = result.copy;
     }
 
     function onError(error) {
@@ -35,4 +38,12 @@ function restoreOptions() {
 
 document.addEventListener("DOMContentLoaded", restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);
+var inputs = document.getElementsByTagName("input")
+
+for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener("input", e => {
+        document.querySelector("#unsaved").style.opacity = 1;
+    })
+}
+
 document.querySelector("#pattern").addEventListener("input", disableSaveIfNotValid);

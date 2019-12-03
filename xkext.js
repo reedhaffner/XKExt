@@ -22,21 +22,9 @@ browser.menus.create({
                         }
                     }`,
                 }).then(() => {
-                    navigator.clipboard.readText().then(text => {
-                        if (text != request.responseText) {
-                            browser.notifications.create({
-                                "type": "basic",
-                                "iconUrl": browser.extension.getURL("icons/icon-48.png"),
-                                "title": "XK Password Generated",
-                                "message": `Click here to copy to clipboard.`,
-                            });
-                            browser.notifications.onClicked.addListener((id) => {
-                                browser.tabs.executeScript(tab.id, {
-                                    code: `navigator.clipboard.writeText('${request.responseText}');`,
-                                });
-                            })
-                        }
-                    })
+                    if (result.copy) {
+                        navigator.clipboard.writeText(request.responseText);
+                    }
                 });
             }
         }
