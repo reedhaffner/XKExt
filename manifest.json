@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "XKExt",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Quickly Generate XK Passwords!",
     "icons": {
         "48": "icons/icon-48.png"
@@ -24,5 +24,15 @@
         "gecko": {
             "id": "xkext@hfnr.cc"
         }
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "page-script.js"
+            ]
+        }
+    ]
 }
