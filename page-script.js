@@ -34,7 +34,12 @@ for (var i = 0; i < getPwdInputs().length; i++) {
     var styling = getComputedStyle(element)
     var positioning = getOffset(element)
     getPwdInputs()[i].classList.add(`xkext-${i}`)
-    document.body.innerHTML += `<a class='xkext-generate-button' id='xkext-${i}' style='cursor: pointer;position: absolute; top: ${positioning.top}px; left:${positioning.right}px;transform: translateX(-100%);line-height: ${styling.lineHeight};padding: ${styling.paddingTop} ${styling.paddingLeft}; margin-top: ${styling.borderTopWidth};'>XK</a>`;
+    var aElem = document.createElement('a')
+    aElem.innerHTML = 'XK'
+    aElem.style = `cursor: pointer;position: absolute; top: ${positioning.top}px; left:${positioning.right}px;transform: translateX(-100%);line-height: ${styling.lineHeight};padding: ${styling.paddingTop} ${styling.paddingLeft}; margin-top: ${styling.borderTopWidth};`
+    aElem.id = `xkext-${i}`
+    aElem.classList = ['xkext-generate-button']
+    document.body.appendChild(aElem)
 }
 
 var xkextButtons = document.getElementsByClassName('xkext-generate-button');
